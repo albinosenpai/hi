@@ -1,3 +1,45 @@
+local HowManyCharacters = 100
+
+local Alphabet = true
+local Numbers = true
+local SpecialCharacters = true
+local Space = false
+
+
+
+-- Random String Generator
+local alphabet = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz'
+local numbers = '1234567890'
+local specialcharacters = '{}!@#$%^&*()_+-=[]\\/.,*+'
+local space = ' '
+local output = ''
+
+
+
+function ReturnUsable()
+local returntable = {}
+if Alphabet==true then
+table.insert(returntable,1,alphabet)
+end
+if Numbers==true then
+table.insert(returntable,1,numbers)
+end
+if SpecialCharacters==true then
+table.insert(returntable,1,specialcharacters)
+end
+if Space==true then
+table.insert(returntable,1,space)
+end
+return returntable
+end
+
+for i=1,HowManyCharacters do
+local tables = ReturnUsable()
+local CurrentType = tables[math.random(1,#tables)]
+local a = math.random(1,string.len(CurrentType))
+output = output .. string.sub(CurrentType,a,a)
+end
+
 local DiscordLib = {}
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -83,7 +125,7 @@ local function MakeDraggable(topbarobject, object)
 end
 
 local Discord = Instance.new("ScreenGui")
-Discord.Name = "Discord"
+Discord.Name = output
 Discord.Parent = game.CoreGui
 Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
