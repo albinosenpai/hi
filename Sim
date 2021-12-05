@@ -1,11 +1,9 @@
-local HowManyCharacters = 100
+local HowManyCharacters = 15
 
 local Alphabet = true
-local Numbers = true
-local SpecialCharacters = true
+local Numbers = false
+local SpecialCharacters = false
 local Space = false
-
-
 
 -- Random String Generator
 local alphabet = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz'
@@ -13,8 +11,6 @@ local numbers = '1234567890'
 local specialcharacters = '{}!@#$%^&*()_+-=[]\\/.,*+'
 local space = ' '
 local output = ''
-
-
 
 function ReturnUsable()
 local returntable = {}
@@ -1728,7 +1724,7 @@ function DiscordLib:Window(text)
 		local ServerWhiteFrame = Instance.new("Frame")
 		local ServerWhiteFrameCorner = Instance.new("UICorner")
 
-		Server.Name = text .. "Server"
+		Server.Name = text .. output
 		Server.Parent = ServersHold
 		Server.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
 		Server.Position = UDim2.new(0.125, 0, 0, 0)
@@ -2067,7 +2063,7 @@ function DiscordLib:Window(text)
 				true
 			)
 			ServerFrame.Visible = true
-			Server.Name = text .. "Server"
+			Server.Name = text .. output
 			currentservertoggled = Server.Name
 			fs = true
 		end
